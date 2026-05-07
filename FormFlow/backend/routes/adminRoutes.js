@@ -9,7 +9,7 @@ const adminOrEmployee = require("../middleware/adminOrEmployee");
 const {
     createEmployee, getEmployees,
     getSingleEmployee, updateEmployee, deleteEmployee
-} = require("../controllers/adminController");
+} = require("../controllers/admincontroller");
 
 
 router.get("/users", auth, adminOrEmployee, async (req, res) => {
