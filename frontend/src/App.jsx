@@ -38,7 +38,7 @@ export default function App() {
           <Route path="employees" element={<Employees />} />
           <Route path="create-employee" element={<CreateEmployee />} />
           <Route path="edit/:id" element={<EditEmployee />} />
-          <Route path="settings" element={<Settings />} />
+          <Route path="settings" element={<settings />} />
         </Route>
 
       </Routes>
