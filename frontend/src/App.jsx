@@ -3,16 +3,16 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/profile";
 import FormPage from "./pages/formpage";
-import Success from "./pages/success";
+import Success from "./pages/Success";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminUsers from "./pages/admin/AdminUsers";
 import AdminForms from "./pages/admin/AdminForms";
-import FormDetail from "./pages/admin/formdetail"; // ← small f
+import FormDetail from "./pages/admin/FormDetail";
 import CreateEmployee from "./pages/admin/CreateEmployee";
 import Employees from "./pages/admin/Emplyoee";
 import EditEmployee from "./pages/admin/EditEmplyoee";
-import Settings from "./pages/admin/settings";
+import Settings from "./pages/admin/Settings";
 
 export default function App() {
   const role = localStorage.getItem("role");
@@ -37,7 +37,7 @@ export default function App() {
           <Route path="employees" element={<Employees />} />
           <Route path="create-employee" element={<CreateEmployee />} />
           <Route path="edit/:id" element={<EditEmployee />} />
-          <Route path="settings" element={<Settings />} /> {/* ← capital S */}
+          <Route path="settings" element={<Settings />} />
         </Route>
 
       </Routes>
