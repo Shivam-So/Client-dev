@@ -24,10 +24,10 @@ export default function CreateEmployee() {
 
     return (
         <div>
-            <h1 className="text-2xl font-bold mb-1" style={{ color: "#fff" }}>Create Employee</h1>
+            <h1 className="text-xl md:text-2xl font-bold mb-1" style={{ color: "#fff" }}>Create Employee</h1>
             <p className="text-sm mb-6" style={{ color: "#9ca3af" }}>Add a new employee to the system</p>
 
-            <div className="p-6 max-w-md" style={{ background: "#151921", border: "1px solid #1e2433", borderRadius: 12 }}>
+            <div className="p-5 md:p-6 w-full max-w-md" style={{ background: "#151921", border: "1px solid #1e2433", borderRadius: 12 }}>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
                         <label className="text-xs font-semibold mb-1 block" style={{ color: "#9ca3af" }}>NAME</label>

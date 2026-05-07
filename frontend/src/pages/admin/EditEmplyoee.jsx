@@ -36,11 +36,11 @@ export default function EditEmployee() {
 
     return (
         <div>
-            <h1 className="text-2xl font-bold mb-1" style={{ color: "#fff" }}>Edit Employee</h1>
+            <h1 className="text-xl md:text-2xl font-bold mb-1" style={{ color: "#fff" }}>Edit Employee</h1>
             <p className="text-sm mb-6" style={{ color: "#9ca3af" }}>Update employee details</p>
 
-            <div className="p-6 max-w-2xl" style={{ background: "#151921", border: "1px solid #1e2433", borderRadius: 12 }}>
-                <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4">
+            <div className="p-5 md:p-6 w-full max-w-2xl" style={{ background: "#151921", border: "1px solid #1e2433", borderRadius: 12 }}>
+                <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {[
                         { label: "FIRST NAME", key: "firstName", placeholder: "First name" },
                         { label: "MIDDLE NAME", key: "middleName", placeholder: "Middle name" },
@@ -54,12 +54,12 @@ export default function EditEmployee() {
                                 onChange={(e) => setForm({ ...form, [key]: e.target.value })} />
                         </div>
                     ))}
-                    <div className="col-span-2">
+                    <div className="col-span-1 sm:col-span-2">
                         <label className="text-xs font-semibold mb-1 block" style={{ color: "#9ca3af" }}>PHONE</label>
                         <input placeholder="Phone" value={form.contact} style={inputStyle}
                             onChange={(e) => setForm({ ...form, contact: e.target.value })} />
                     </div>
-                    <div className="col-span-2">
+                    <div className="col-span-1 sm:col-span-2">
                         <button type="submit" className="w-full py-2.5 rounded-lg text-sm font-semibold"
                             style={{ background: "#3b82f6", color: "#fff" }}>Update Employee</button>
                     </div>
