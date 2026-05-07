@@ -1,5 +1,5 @@
 const Profile = require("../models/profile");
-const User = require("../models/user");
+const User = require("../models/User");
 
 exports.saveProfile = async (req, res) => {
     try {
@@ -13,7 +13,7 @@ exports.saveProfile = async (req, res) => {
             contact: req.body.contact
         });
 
-        
+
         await User.findByIdAndUpdate(req.user.id, {
             isProfileCompleted: true
         });
