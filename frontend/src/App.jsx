@@ -8,7 +8,7 @@ import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminUsers from "./pages/admin/AdminUsers";
 import AdminForms from "./pages/admin/AdminForms";
-import FormDetail from "./pages/admin/FormDetail";
+import FormDetail from "./pages/admin/formdetail"; // ← small f
 import CreateEmployee from "./pages/admin/CreateEmployee";
 import Employees from "./pages/admin/Emplyoee";
 import EditEmployee from "./pages/admin/EditEmplyoee";
@@ -27,7 +27,6 @@ export default function App() {
         <Route path="/form" element={<FormPage />} />
         <Route path="/success" element={<Success />} />
 
-        {/* /dashboard → redirect to admin dashboard */}
         <Route path="/dashboard" element={<Navigate to="/admin/dashboard" />} />
 
         <Route path="/admin" element={<AdminLayout />}>
@@ -38,7 +37,7 @@ export default function App() {
           <Route path="employees" element={<Employees />} />
           <Route path="create-employee" element={<CreateEmployee />} />
           <Route path="edit/:id" element={<EditEmployee />} />
-          <Route path="settings" element={<settings />} />
+          <Route path="settings" element={<Settings />} /> {/* ← capital S */}
         </Route>
 
       </Routes>
