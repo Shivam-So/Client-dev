@@ -11,7 +11,7 @@ const adminRoutes = require("./routes/adminRoutes");
 const app = express();
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "*",
     credentials: true
 }));
 
@@ -19,14 +19,10 @@ app.use(express.json());
 app.use("/api/profile", profileRoutes);
 app.use("/api/form", formRoutes);
 app.use("/api/dashboard", dashboardRoutes);
-app.use("/api/admin", require("./routes/adminRoutes"));
-
-
+app.use("/api/admin", adminRoutes);
+app.use("/api/auth", require("./routes/authRoutes")); // capital R
 
 connectDB();
-
-
-app.use("/api/auth", require("./routes/authroutes"));
 
 app.get("/", (req, res) => {
     res.send("API running ");
