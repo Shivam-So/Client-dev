@@ -12,7 +12,7 @@ import FormDetail from "./pages/admin/FormDetail";
 import CreateEmployee from "./pages/admin/CreateEmployee";
 import Employees from "./pages/admin/Emplyoee";
 import EditEmployee from "./pages/admin/EditEmplyoee";
-import Settings from "./pages/admin/Settings";
+import Settings from "./pages/admin/settings";
 
 export default function App() {
   const role = localStorage.getItem("role");
