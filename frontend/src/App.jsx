@@ -17,6 +17,7 @@ import Settings from "./pages/admin/Settings";
 export default function App() {
   const role = localStorage.getItem("role");
 
+
   return (
     <BrowserRouter>
       <Routes>
