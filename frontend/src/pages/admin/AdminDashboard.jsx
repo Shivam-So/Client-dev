@@ -47,9 +47,6 @@ export default function AdminDashboard() {
                 Dashboard
             </h1>
 
-            <p className="text-sm mb-6" style={textMuted}>
-                Welcome to your admin panel
-            </p>
 
             {/* Cards */}
             <div className="grid grid-cols-2 gap-3 md:gap-4 mb-6">
