@@ -5,9 +5,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frontend</title>
+    <style>
+        #page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: grid;
+            place-items: center;
+            background: #ffffff;
+            transition: opacity 240ms ease, visibility 240ms ease;
+        }
+
+        #page-loader .loader-logo {
+            width: 86px;
+            height: 86px;
+            border-radius: 999px;
+            animation: logo-pulse 1s ease-in-out infinite;
+        }
+
+        body.app-loaded #page-loader {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        @keyframes logo-pulse {
+
+            0%,
+            100% {
+                transform: scale(0.94);
+                opacity: 0.72;
+            }
+
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div id="page-loader" aria-label="Loading">
+        <img class="loader-logo" src="/src/assets/295128.png" alt="Loading" />
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
 </body>

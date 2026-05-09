@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useEffect } from "react";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/profile";
@@ -15,8 +16,13 @@ import EditEmployee from "./pages/admin/EditEmplyoee";
 import Settings from "./pages/admin/Settings";
 
 export default function App() {
-  const role = localStorage.getItem("role");
+  useEffect(() => {
+    document.body.classList.add("app-loaded");
 
+    return () => {
+      document.body.classList.remove("app-loaded");
+    };
+  }, []);
 
   return (
     <BrowserRouter>
@@ -41,6 +47,7 @@ export default function App() {
           <Route path="settings" element={<Settings />} />
         </Route>
 
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );

@@ -10,7 +10,6 @@ import {
     Menu,
     X
 } from "lucide-react";
-
 import { Toaster } from "react-hot-toast";
 
 export default function AdminLayout() {
@@ -23,22 +22,30 @@ export default function AdminLayout() {
     const [sidebarOpen, setSidebarOpen] = useState(false);
 
     useEffect(() => {
+
         if (role !== "admin" && role !== "employee") {
+
             navigate("/");
         }
+
     }, []);
 
     useEffect(() => {
+
         setSidebarOpen(false);
+
     }, [location.pathname]);
 
     const logout = () => {
+
         localStorage.removeItem("token");
         localStorage.removeItem("role");
+
         navigate("/");
     };
 
     const navItems = [
+
         {
             to: "/admin/dashboard",
             label: "Dashboard",
@@ -81,6 +88,7 @@ export default function AdminLayout() {
     ];
 
     const SidebarContent = () => (
+
         <>
 
             {/* Logo */}
@@ -97,31 +105,50 @@ export default function AdminLayout() {
                     "
                     style={{ background: "#f97316" }}
                 >
-                    <span className="text-white font-bold text-sm">A</span>
+
+                    <span className="text-white font-bold text-sm">
+
+                        {role === "admin" ? "A" : "E"}
+
+                    </span>
+
                 </div>
 
+                {/* Panel Name */}
                 <span className="text-white font-bold text-lg">
-                    Admin Panel
+
+                    {role === "admin"
+                        ? "Admin Panel"
+                        : "Employee Panel"}
+
                 </span>
+
             </div>
 
+            {/* Dashboard Text */}
             <p
-                className="text-xs font-semibold mb-3 px-2"
+                className="
+                text-xs font-semibold
+                mb-3 px-2
+                "
                 style={{ color: "#4b5563" }}
             >
                 DASHBOARD
             </p>
 
-            {/* Sidebar Nav */}
+            {/* Navigation */}
             <nav className="space-y-1 flex-1">
 
                 {navItems.map((item) => {
 
-                    const isActive = location.pathname === item.to;
+                    const isActive =
+                        location.pathname === item.to;
 
                     return (
+
                         <Link
                             key={item.to}
+
                             to={item.to}
 
                             className="
@@ -130,30 +157,44 @@ export default function AdminLayout() {
                             transition-all duration-300 ease-in-out
                             hover:translate-x-1
                             hover:shadow-lg
+                            cursor-pointer
                             "
 
                             style={{
-                                background: isActive ? "#1e3a5f" : "transparent",
+                                background:
+                                    isActive
+                                        ? "#1e3a5f"
+                                        : "transparent",
 
-                                color: isActive
-                                    ? "#60a5fa"
-                                    : "#9ca3af",
+                                color:
+                                    isActive
+                                        ? "#60a5fa"
+                                        : "#9ca3af",
 
-                                borderLeft: isActive
-                                    ? "3px solid #3b82f6"
-                                    : "3px solid transparent"
+                                borderLeft:
+                                    isActive
+                                        ? "3px solid #3b82f6"
+                                        : "3px solid transparent"
                             }}
                         >
-                            <div className="transition-all duration-300 hover:scale-110">
+
+                            <div
+                                className="
+                                transition-all duration-300
+                                hover:scale-110
+                                "
+                            >
                                 {item.icon}
                             </div>
 
                             <span className="text-sm font-medium">
                                 {item.label}
                             </span>
+
                         </Link>
                     );
                 })}
+
             </nav>
 
             {/* Logout */}
@@ -168,12 +209,15 @@ export default function AdminLayout() {
                 hover:scale-[1.03]
                 hover:shadow-xl
                 hover:-translate-y-1
+                cursor-pointer
                 "
+
                 style={{
                     color: "#ef4444",
                     background: "#1f1520"
                 }}
             >
+
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -182,22 +226,37 @@ export default function AdminLayout() {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                 >
+
                     <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1"
+
+                        d="
+                        M17 16l4-4m0 0l-4-4
+                        m4 4H7
+                        m6 4v1a2 2 0 01-2 2H5
+                        a2 2 0 01-2-2V7
+                        a2 2 0 012-2h6
+                        a2 2 0 012 2v1
+                        "
                     />
+
                 </svg>
 
                 Logout
+
             </button>
+
         </>
     );
 
     return (
+
         <div
-            className="flex h-screen overflow-hidden"
+            className="
+            flex h-screen overflow-hidden
+            "
             style={{ background: "#0f1117" }}
         >
 
@@ -207,7 +266,8 @@ export default function AdminLayout() {
             <div
                 className="
                 hidden md:flex
-                w-64 flex-col p-4 border-r
+                w-64 flex-col
+                p-4 border-r
                 transition-all duration-300
                 "
                 style={{
@@ -215,18 +275,28 @@ export default function AdminLayout() {
                     borderColor: "#1e2433"
                 }}
             >
+
                 <SidebarContent />
+
             </div>
 
             {/* Mobile Sidebar */}
             {sidebarOpen && (
+
                 <div className="fixed inset-0 z-50 md:hidden">
 
-                    {/* Backdrop */}
+                    {/* Overlay */}
                     <div
                         className="absolute inset-0"
-                        style={{ background: "rgba(0,0,0,0.6)" }}
-                        onClick={() => setSidebarOpen(false)}
+
+                        style={{
+                            background:
+                                "rgba(0,0,0,0.6)"
+                        }}
+
+                        onClick={() =>
+                            setSidebarOpen(false)
+                        }
                     />
 
                     {/* Sidebar */}
@@ -234,44 +304,59 @@ export default function AdminLayout() {
                         className="
                         absolute left-0 top-0
                         h-full w-64
-                        flex flex-col p-4 border-r z-50
-                        animate-slideIn
+                        flex flex-col
+                        p-4 border-r z-50
                         "
                         style={{
                             background: "#151921",
                             borderColor: "#1e2433"
                         }}
                     >
+
+                        {/* Close Button */}
                         <button
-                            onClick={() => setSidebarOpen(false)}
+                            onClick={() =>
+                                setSidebarOpen(false)
+                            }
 
                             className="
                             absolute top-4 right-4
                             transition-all duration-300
                             hover:scale-110
                             hover:rotate-90
+                            cursor-pointer
                             "
-                            style={{ color: "#9ca3af" }}
+
+                            style={{
+                                color: "#9ca3af"
+                            }}
                         >
+
                             <X size={20} />
+
                         </button>
 
                         <SidebarContent />
+
                     </div>
+
                 </div>
             )}
 
             {/* Main */}
             <div
-                className="flex-1 overflow-y-auto"
+                className="
+                flex-1 overflow-y-auto
+                "
                 style={{ background: "#0f1117" }}
             >
 
                 {/* Topbar */}
                 <div
                     className="
-                    flex justify-between items-center
-                    px-4 md:px-6 py-4 border-b
+                    flex items-center
+                    px-4 md:px-6 py-4
+                    border-b
                     "
                     style={{
                         background: "#151921",
@@ -279,57 +364,58 @@ export default function AdminLayout() {
                     }}
                 >
 
-                    <div className="flex items-center gap-3">
-
-                        <button
-                            className="
-                            md:hidden
-                            transition-all duration-300
-                            hover:scale-110
-                            "
-                            onClick={() => setSidebarOpen(true)}
-                            style={{ color: "#9ca3af" }}
-                        >
-                            <Menu size={22} />
-                        </button>
-
-                        <p
-                            className="text-sm"
-                            style={{ color: "#9ca3af" }}
-                        >
-                            Welcome back,{" "}
-
-                            <span className="text-white font-semibold">
-                                {role === "admin"
-                                    ? "Admin"
-                                    : "Employee"}
-                            </span>
-                        </p>
-                    </div>
-
-
-                    <div
+                    {/* Mobile Menu */}
+                    <button
                         className="
-                        w-9 h-9 rounded-full
-                        flex items-center justify-center
-                        font-bold text-white
+                        md:hidden
                         transition-all duration-300
                         hover:scale-110
-                        hover:rotate-6
-                        hover:shadow-2xl
+                        mr-3
                         cursor-pointer
                         "
-                        style={{ background: "#3b82f6" }}
+
+                        onClick={() =>
+                            setSidebarOpen(true)
+                        }
+
+                        style={{
+                            color: "#9ca3af"
+                        }}
                     >
-                        {role === "admin" ? "A" : "E"}
-                    </div>
+
+                        <Menu size={22} />
+
+                    </button>
+
+                    {/* Welcome Text */}
+                    <p
+                        className="text-sm"
+                        style={{ color: "#9ca3af" }}
+                    >
+
+                        Welcome back,{" "}
+
+                        <span className="text-white font-semibold">
+
+                            {role === "admin"
+                                ? "Admin"
+                                : "Employee"}
+
+                        </span>
+
+                    </p>
+
                 </div>
 
-
+                {/* Page Content */}
                 <div className="p-4 md:p-6">
+
                     <Outlet />
+
                 </div>
+
             </div>
+
         </div>
     );
 }
