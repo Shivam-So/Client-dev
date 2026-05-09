@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import API from "../../services/api";
 
 export default function AdminForms() {
 
     const [forms, setForms] = useState([]);
     const [page, setPage] = useState(1);
+    const navigate = useNavigate();
 
     const perPage = 5;
 
@@ -174,7 +176,9 @@ export default function AdminForms() {
 
                                             <button
                                                 onClick={() =>
-                                                    alert(JSON.stringify(f, null, 2))
+                                                    navigate(`/admin/forms/${f._id}`, {
+                                                        state: { form: f }
+                                                    })
                                                 }
 
                                                 className="

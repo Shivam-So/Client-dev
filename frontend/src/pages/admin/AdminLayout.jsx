@@ -11,6 +11,7 @@ import {
     X
 } from "lucide-react";
 import { Toaster } from "react-hot-toast";
+import appLogo from "../../assets/app-logo.png";
 
 export default function AdminLayout() {
 
@@ -94,25 +95,17 @@ export default function AdminLayout() {
             {/* Logo */}
             <div className="flex items-center gap-3 mb-10 px-2 mt-2">
 
-                <div
+                <img
+                    src={appLogo}
+                    alt={role === "admin" ? "Admin Panel Logo" : "Employee Panel Logo"}
                     className="
-                    w-8 h-8 rounded-lg
-                    flex items-center justify-center
+                    w-10 h-10 object-contain
                     transition-all duration-300
                     hover:scale-110
                     hover:rotate-6
                     hover:shadow-xl
                     "
-                    style={{ background: "#f97316" }}
-                >
-
-                    <span className="text-white font-bold text-sm">
-
-                        {role === "admin" ? "A" : "E"}
-
-                    </span>
-
-                </div>
+                />
 
                 {/* Panel Name */}
                 <span className="text-white font-bold text-lg">
