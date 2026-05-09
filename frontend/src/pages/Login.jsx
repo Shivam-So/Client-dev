@@ -4,7 +4,7 @@ import API from "../services/api";
 import { useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
-import loginLogo from "../assets/295128.png";
+import loginLogo from "../assets/app-logo.png";
 
 export default function Login() {
 

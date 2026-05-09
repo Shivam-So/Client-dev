@@ -29,6 +29,12 @@
             pointer-events: none;
         }
 
+        body.app-loading #page-loader {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: all;
+        }
+
         @keyframes logo-pulse {
 
             0%,
@@ -47,7 +53,7 @@
 
 <body>
     <div id="page-loader" aria-label="Loading">
-        <img class="loader-logo" src="/src/assets/295128.png" alt="Loading" />
+        <img class="loader-logo" src="/src/assets/app-logo.png" alt="Loading" />
     </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>

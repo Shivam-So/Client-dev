@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import API from "../services/api";
 import toast from "react-hot-toast";
 
-import loginLogo from "../assets/295128.png";
+import loginLogo from "../assets/app-logo.png";
 
 export default function FormPage() {
 
